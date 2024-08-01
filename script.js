@@ -1,0 +1,64 @@
+// RSA signature generation
+
+var sKp1PrvPEM = "" +
+"-----BEGIN RSA PRIVATE KEY-----\n" +
+"Proc-Type: 4,ENCRYPTED\n" +
+"DEK-Info: DES-EDE3-CBC,93E855B0AE025131\n" +
+"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\n" +
+"-----END RSA PRIVATE KEY-----\n";
+var prvKey = new RSAKey();
+prvKey.readPrivateKeyFromPEMString(sKp1PrvPEM, '0tk,v690gkMA)s');
+var sig = new KJUR.crypto.Signature({"alg": "SHA512withRSA"});
+sig.init(prvKey);
+console.log(prvKey);
+sig.updateString('UA683510050000026007053158202_UAH|1718012147000|1718184947000|0|100');
+var hSigVal = sig.sign();
+console.log(hSigVal);
